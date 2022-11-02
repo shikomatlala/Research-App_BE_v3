@@ -32,7 +32,7 @@ exports.register = catchAsync( async(req, res, next)=>{
 
 exports.login = catchAsync(async(req, res, next) => {
     const user = await User.findOne({
-        where: { email: req.body.email}
+        where: { email: req.body.email, password: req.body.password}
     });
 
     const token = signToken(user);
